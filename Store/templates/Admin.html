@@ -1,0 +1,196 @@
+{% extends 'Base.html' %}
+{% block content %}
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+      <!-- container -->
+      <div class="container">
+          <!-- row -->
+          <div class="row">
+              <div class="col-md-12">
+                  <ul class="breadcrumb-tree">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Administration</a></li>
+                  </ul>
+              </div>
+          </div>
+          <!-- /row -->
+      </div>
+      <!-- /container -->
+  </div>
+  <!-- /BREADCRUMB -->
+  <div class="container">
+    <div class="row">
+      <!-- Dashboard -->
+      <div class="col-8">
+        <section id="Sales ">
+          <span class="title">Weekly Overview</span>
+          <section class="">
+      
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th>
+                    <span>Sales Overview</span>
+                  </th>
+                  <th>
+                    <span>Sales By Category</span>
+                  </th>
+                  <th>
+                    <span>Sales By Product</span>
+                  </th>
+                  <th>
+                    <span class="Stat-Title">Timeframes</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <select id="CategorySelect" class="form-control" onchange="updateChartData(this.value)">
+                      <option value="0" class="select-box">Select Data To Track</option>
+                      <option value="0" class="select-box">Income</option>
+                      <option value="1" class="select-box">Profit</option>
+                      <option value="2" class="select-box">Expense</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select id="categorySelect" class="form-control" onchange="switchData(this.value)">
+                      <option class="select-box" value="">Select A Category</option>
+                      {% for category in categories %}
+                      <option class="select-box" value="{{ category.id }}">{{ category.name }}</option>
+                      {% endfor %}
+                      {% if categories < 1 %}
+                      <option class="select-box" value="0">No Categories Found</option>
+                      {% endif %}
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" id="myInput1" onkeyup="myFunction()" placeholder="Search for names..">
+                  </td>
+                  <td>
+                    <div>
+      
+                      <section class="Actions">
+                        <button class="btn btn-primary" onclick="switchData(0)">Weekly</button>
+                        <button class="btn btn-primary" onclick="switchData(1)">Monthly</button>
+                        <button class="btn btn-primary" onclick="switchData(2)">Yearly</button>
+                      </section>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            {{ error }}
+      
+            <div class="chart-container">
+              <canvas id="SalesData" class="sales-chart" width="300" height="300"></canvas>
+            </div>
+      
+      
+      
+            <div class="row">
+      
+              <p>Total Items Sold: <span id="totalItemsSold">0</span></p>
+              <p>Total Revenue: $<span id="totalRevenue">0.00</span></p>
+              <p>Total Profit: $<span id="totalProfit">0.00</span></p>
+            </div>
+          </section>
+      </div>
+      <div class="col-md-4">
+        <section id="AddProduct-Form" class="mt-4 text-center">
+          <span class="title"><span class="Section-Title">Add Product</span></span>
+          <form name="AddProduct" id="AddProduct-Form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+              
+              <div class="form-group">
+                <label class="Product-Label" for="Name">Product Name</label>
+                <input
+                  class="form-control"
+                  style="text-align: center"
+                  type="text"
+                  id="Name"
+                  placeholder="Enter Product Name"
+                />
+              </div>
+              <div class="form-group">
+                <label class="Product-Label" for="Price">Price</label>
+                <input
+                  class="form-control"
+                  style="text-align: center"
+                  data-type="currency"
+                  id="Price"
+                  placeholder="Enter Price"
+                />
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="Description" rows="3" placeholder="Enter Description"></textarea>
+              </div>
+     
+              <div class="form-group">
+                <label class="product-label" for="Category">Category</label>
+                <div class="input-group">
+                  <select
+                    class="form-control"
+                    id="Category"
+                    name="category"
+                  >
+                    <option value="" disabled selected>
+                      Select or add a category
+                    </option>
+                    {% if categories %} {% for category in categories %}
+                    <option value="1">{{ category.name }}</option>
+                    {% endfor %} {% else %}
+                    <option value="1">No categories found</option>
+                    {% endif %}
+                  </select>
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="newCategory"
+                    name="newCategory"
+                    placeholder="Or enter a new category"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="file-upload">
+                  <div class="file-select">
+                    <div class="file-select-button" id="fileName">Choose Image</div>
+                    <div class="file-select-name" id="noFile">No Image chosen...</div>
+                    <input type="file" name="chooseFile" id="chooseFile" />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-group">
+                <button
+                  class="btn btn-primary"
+                  onclick="loginFunction('AddProduct' , {% url 'AddProduct' %})"
+                >
+                  Add Product
+                </button>
+              </div>
+
+              <div class="form-group">
+                {{error}}
+              </div>
+            </form>
+            </section>
+                </div>
+              </div>
+  <!-- Three Equal Grid Areas Below -->
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <!-- First grid area content -->
+    </div>
+    <div class="col-md-4">
+      <!-- Second grid area content -->
+    </div>
+    <div class="col-md-4">
+      <!-- Third grid area content -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}

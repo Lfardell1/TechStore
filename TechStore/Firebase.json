@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "leons-computers",
+  "private_key_id": "93bad4819ff08ac2cc94d8eb9fcd7dc58e1be73a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCywTBkEe6nBkHL\ngZvqvgPIMXfCr2qptDLuKJHwptC1dt711y4KUxje5gAWlm3gs1QnL1ICkTDogOBU\nPtcUF4/WfmlGuiOdekUl2Ia3QkIbbiahk5eWS1LhxUxi+NVvwg5JLOv43IYxkD8i\nX3vKIIgCQrwokzZjgafr1SauvZVPfV1JQFiq1FszmnlbXs8WARNVYYlRFL9DwJ4s\nEVnM9OJmfoSpHq2hVW57CkMH6cqWnY+Z4ItCcZu77vXJASQ+jmbSt5Z0axL4GpHg\nfcJ6BBMJAZMftayQNUmQmKiJuzb/Eaux/cfS0lXmI8gBUlnDdeC4P6we6Xi4M7Cz\nwJQK4+npAgMBAAECggEAFJa82KHaH6HQXTzJ9SE6tUnBVgq3WeGYBidlG9dS7bvJ\n1X4Z3vWQRUgvlWpxMHLnS/Ye143amMUTUZDFXBqUpit8O7m/1WkaYtAMQDpg++DV\nkUG7MYPugXOkpzeq+crbs2D5svnPeRD4vKBL1U2m7L+8BV5jYtWxvi+YW4MZmgSQ\nhbedcSQWRZ8v1i2QlkfQWwrgFvBBHybmNcRNp5lxJb2thNoQkYg60Mqx4GAuuuj2\n5/1DxejXKAyEEV8eUy6c45pxh84A2wuftWQMnkKqGP3Dz2wvk3bGunIMVNIgFpSg\n93zY5Evft/eSGyWEnp0Kowe+EJzrn7s617+vp6s5QQKBgQDq9E5cIU340z7mqKLr\ns4RlA4X9TxCMB+3naig2GtOMIKFB08Z0L6/Nvc0uFNKLlPk6buy+iStwn+jdiaQX\n0dBzgxLcj6w6tpNQrOGS83t3GDbd/0oJ0DS2JoN7CBOCaoARV76ivxpeBYKkSCoK\nWogjmc1SEP9cPB9vOWRAtsJpsQKBgQDCxC24euPasj6YTG+FlXI7FbQIV86l2Wu9\nGABBJ0huduBA7uVgk9J7/h2jSMofPienbYUPv7bCvikxF+Xvkhmz0RT+dZL9DRBk\n9qQSAoOCiKEraZK4wVAdWiaVTgXAhy6sk84YteLv1Amb9UQPTtOMcysCqa6eN7ai\nM5TC/tdZuQKBgGbMUWSZ5cWSl5jP+8homOqhagR0jWbXKU3w8nsJrblHpYZppBC9\ntIuuGZGp5pzPp2PbmJWc6nayYG5dhIAveqavmJcL/W0K6NWJboCfK0vmOktTIQ++\nGvH/U9OGqxKKilIMNAp81oqAmrJKKKqzBZGd/2mCqleuroo5cBWoYNNhAoGBAKTT\n77mLTt/bLzwmm87abgTw1h6laP5UpWgvMq/w9cx+kESDqN113JEQurZgOKX+LQL1\nncF5RstCsYuZpP99joDuNi0vBYlgj/pR/QI83F0REgyyWPhAqXNdwv9iO133SZnF\nsIqbC4ZZ1RQGmmW2GTRolwK25U+C6O4WZxQrJccJAoGAXCcGgjyQU/orZerzjden\n82w2/QdnUtGTs1+vTrLaw+71suF0dcmmzb5RBRSFaOv+F0sBLgjOSla6kpAzDKA8\nnA54L8pErRgFZW0nyuVnxFRwvFLAeTz1+yvgA1O8EpvX3jN0TaCT7Tq9Nyz3JSKX\nR/yhas+ZZWJlem5YR54iPKc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-tj3dg@leons-computers.iam.gserviceaccount.com",
+  "client_id": "117769957755911363075",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-tj3dg%40leons-computers.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

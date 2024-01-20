@@ -1,0 +1,31 @@
+Calcualating what items to feature
+
+This must take in mind 
+
+ - availability of stock
+ - Profit per unit
+ - Demand for the product (sales) 
+ - Outdated items (need to go) 
+ - How new the item is 
+ - Price of the item (holistically not just profit) 
+ - How much the item has been wishlisted by customers 
+ - How much the item has been carted but not purchased
+ - The amount of items in each category
+ - Popularity of certain items in particular regions
+ 
+
+-Adding items to the store
+-Analytics 
+-Stock / Inventory for employees
+-Fake payment gateway
+-Pages for each category
+-Pagination for each product
+-Newsletter
+-Ability for three levels 
+     - Manager 
+     - Employeee
+     - Customer
+-Add to cart (save to DB)
+-Add to DB  (save to DB)
+-View other profiles
+

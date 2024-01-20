@@ -1,0 +1,208 @@
+{% extends 'Base.html' %}
+{% block content %}	
+	
+	<body>
+	
+
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<p  style=" font-size:40px; text-align:center; font-size:30px font-family:Comfortaa; margin-bottom:20px;">Employee Login</p>
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">Sign In</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="{% url 'Home' %}">Home</a></li>
+							<li class="active">Employee Portal</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			
+			
+			<div class="container" style="display:flex; flex-direction: row;">
+				<section style="Width:30%">
+
+				</section>
+
+
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form.as_p }}
+				
+					<div class="form-group" style="display: grid;width: unset;justify-content: center;">
+						<button class="primary-btn" >Login</button>
+					</div>
+				</form>
+						
+						</div>
+					</div>
+
+				</form>
+
+				<section style="Width:30%">
+
+				</section>
+				
+				<!-- row -->
+				<div class="row">
+					
+
+					
+
+
+			
+
+
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- NEWSLETTER -->
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="newsletter">
+							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+							{% comment %} Login / register to be here {% endcomment %}
+							<form>
+								<input class="input" type="email" placeholder="Enter Your Email">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NEWSLETTER -->
+
+	</body>
+
+	<script>
+
+
+
+		// Register Form with AJAX
+		$(document).ready(function(){
+			$(".Login").submit(function(e){
+				e.preventDefault();
+				var form = $(this);
+				var url = form.attr('/EmployeeRegister');
+				
+				// Sanitize form data
+				var sanitizedData = validateRegisterForm(form.serialize());
+				
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: sanitizedData,
+					success: function(data)
+					{
+						if(data == "True")
+						{
+							window.location.href = "{% url 'Home' %}";
+						}
+						else
+						{
+							alert("Invalid Credentials");
+						}
+					}
+				});
+			});
+		});
+
+
+			
+			// Login Form submission with ajax and form validation
+			$(document).ready(function(){
+				$(".Login").submit(function(e){
+					e.preventDefault();
+					var form = $(this);
+					var url = form.attr('/EmployeeLogin');
+					
+					// Perform form validation
+					if (validateLoginForm(form)) {
+						$.ajax({
+							type: "POST",
+							url: url,
+							data: form.serialize(),
+							success: function(data) {
+								if (data == "True") {
+									window.location.href = "{% url 'Home' %}";
+								} else {
+									alert("Invalid Credentials");
+								}
+							}
+						});
+					}
+				});
+			});
+
+
+
+
+
+				// Form validation function
+				function validateLoginForm(form) {
+					var email = form.find('input[type="email"]').val();
+					var password = form.find('input[type="password"]').val();
+					// Check if email and password fields are empty
+					if (email === '' || email == null || password === '' || password == null) {
+						// We want to put an error message next to the empty field instead of an alert
+						alert("Email and password fields are required");
+						return false;
+					}
+					
+					// Sanitize email and password inputs to prevent XSS
+					email = sanitizeInput(email);
+					password = sanitizeInput(password);
+					
+
+					// Once finshed set the values back to the to be sent to the backend
+					return true;
+				}
+				
+		
+			// Prevent Cross-Site Scripting (XSS) attacks
+			function sanitizeInput(input) {
+				return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			}
+	
+
+	</script>
+
+
+{% endblock %}
